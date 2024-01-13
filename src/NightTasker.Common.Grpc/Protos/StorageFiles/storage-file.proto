@@ -1,0 +1,27 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "NightTasker.Common.Grpc.StorageFiles";
+
+package greet;
+
+service StorageFile {
+  rpc GetFile (GetFileRequest) returns (GetFileResponse);
+  rpc DownloadFile (DownloadFileRequest) returns (stream DownloadFileResponse);
+}
+
+message GetFileRequest {
+  string Id = 1;
+}
+
+message GetFileResponse {
+  string Content = 1;
+}
+
+message DownloadFileRequest {
+  string FileName = 1;
+  string BucketName = 2;
+}
+
+message DownloadFileResponse {
+  bytes Data = 1;
+}
