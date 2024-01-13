@@ -6,7 +6,7 @@ package greet;
 
 service StorageFile {
   rpc GetFile (GetFileRequest) returns (GetFileResponse);
-  rpc DownloadFile (DownloadFileRequest) returns (stream DownloadFileResponse);
+  rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
 }
 
 message GetFileRequest {
