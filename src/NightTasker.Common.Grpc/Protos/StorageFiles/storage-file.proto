@@ -5,16 +5,18 @@ option csharp_namespace = "NightTasker.Common.Grpc.StorageFiles";
 package greet;
 
 service StorageFile {
-  rpc GetFile (GetFileRequest) returns (GetFileResponse);
+  rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
   rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
 }
 
-message GetFileRequest {
-  string Id = 1;
+message UploadFileRequest {
+  string FileName = 1;
+  string BucketName = 2;
+  bytes Data = 3;
 }
 
-message GetFileResponse {
-  string Content = 1;
+message UploadFileResponse {
+  string FileName = 1;
 }
 
 message DownloadFileRequest {
