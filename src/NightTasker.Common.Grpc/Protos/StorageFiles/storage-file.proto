@@ -13,6 +13,8 @@ message UploadFileRequest {
   string FileName = 1;
   string BucketName = 2;
   bytes Data = 3;
+  int64 FileSize = 4;
+  string ContentType = 5;
 }
 
 message UploadFileResponse {
