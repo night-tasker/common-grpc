@@ -7,6 +7,7 @@ package greet;
 service StorageFile {
   rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
   rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
+  rpc GetFileUrl(GetFileUrlRequest) returns (GetFileUrlResponse);
 }
 
 message UploadFileRequest {
@@ -28,4 +29,13 @@ message DownloadFileRequest {
 
 message DownloadFileResponse {
   bytes Data = 1;
+}
+
+message GetFileUrlRequest {
+  string BucketName = 1;
+  string FileName = 2;
+}
+
+message GetFileUrlResponse {
+  string Url = 1;
 }
