@@ -9,6 +9,7 @@ service StorageFile {
   rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
   rpc GetFileUrl(GetFileUrlRequest) returns (GetFileUrlResponse);
   rpc GetFilesUrl(GetFilesUrlRequest) returns (GetFilesUrlResponse);
+  rpc RemoveFile (RemoveFileRequest) returns (RemoveFileResponse);
 }
 
 message UploadFileRequest {
@@ -53,4 +54,13 @@ message FileUrlDto {
 
 message GetFilesUrlResponse {
   repeated FileUrlDto Files = 1;
+}
+
+message RemoveFileRequest {
+  string BucketName = 1;
+  string FileName = 2;
+}
+
+message RemoveFileResponse {
+  bool Success = 1;
 }
